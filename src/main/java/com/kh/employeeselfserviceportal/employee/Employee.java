@@ -1,15 +1,32 @@
 package com.kh.employeeselfserviceportal.employee;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Employee {
+
+    @Id
+    private int id;
     private String firstName;
     private String lastName;
     private String role;
-    private int id;
+
+    public Employee() {
+        this.id = 0;
+        this.firstName = "ABC";
+        this.lastName = "DEF";
+        this.role = "Employee";
+    }
 
     public Employee(String firstName, String lastName, String role, int id) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.role = role;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -25,10 +42,10 @@ public class Employee {
         this.role = role;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
+    public int getId() {
+        return id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -39,10 +56,6 @@ public class Employee {
 
     public String getRole() {
         return role;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public boolean equals(Employee obj) {
